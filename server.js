@@ -1,0 +1,30 @@
+// Hostinger Node.js startup file for Next.js
+// Hostinger's "Deploy Web App" sets the PORT environment variable automatically.
+// This file starts Next.js and binds to that port.
+
+const { createServer } = require('http');
+const { parse } = require('url');
+const next = require('next');
+
+const dev = process.env.NODE_ENV !== 'production';
+const hostname = '0.0.0.0';
+const port = parseInt(process.env.PORT || '3000', 10);
+
+const app = next({ dev, hostname, port });
+const handle = app.getRequestHandler();
+
+app.prepare().then(() => {
+  createServer(async (req, res) => {
+    try {
+      const parsedUrl = parse(req.url, true);
+      await handle(req, res, parsedUrl);
+    } catch (err) {
+      console.error('Error occurred handling', req.url, err);
+      res.statusCode = 500;
+      res.end('Internal Server Error');
+    }
+  }).listen(port, hostname, (err) => {
+    if (err) throw err;
+    console.log(`> Anointed Word Ministry — Ready on http://${hostname}:${port}`);
+  });
+});

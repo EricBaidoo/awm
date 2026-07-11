@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0a1e5c;
+  --color-primary-mid: #1a3a8a;
+  --color-primary-light: #2c5fc2;
+  --color-accent: #d4a843;
+  --color-accent-glow: #f0d48a;
+  --color-accent-dark: #b8922e;
+  --color-surface: #ffffff;
+  --color-bg-light: #f5f3ef;
+  --color-bg-dark: #060e2a;
+
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #5a5a6a;
+  --color-text-muted: #8a8a9a;
+  --color-text-on-dark: #e8e6e0;
+  --color-text-on-dark-secondary: #a0a0b0;
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-scripture: var(--font-scripture);
+
+  --shadow-gold: 0 0.25rem 1.875rem rgba(212, 168, 67, 0.3);
+  --shadow-sm: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 0.5rem 2.5rem rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 1rem 3.75rem rgba(0, 0, 0, 0.2);
+
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulseGlow 3s ease-in-out infinite;
+  --animate-bounce-chevron: bounceChevron 2.5s infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-0.625rem); }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 1.25rem rgba(212, 168, 67, 0.2); }
+    50% { box-shadow: 0 0 2.5rem rgba(212, 168, 67, 0.4); }
+  }
+  @keyframes bounceChevron {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-0.75rem) translateX(-50%); }
+    60% { transform: translateY(-0.375rem) translateX(-50%); }
+  }
+}
+
+/* Base custom resets without pixel constraints */
+html {
+  scroll-behavior: smooth;
+  font-size: 100%; /* 16px default browser sizing */
+}
+
+body {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-light);
+  line-height: 1.7;
+}
+
+/* === SECTION SYSTEM === */
+.section {
+  padding-top: clamp(4rem, 8vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.section--light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-primary);
+}
+
+.section--white {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+.section--dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+.section--primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+/* === CONTAINERS === */
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-left: clamp(1.25rem, 5vw, 6rem);
+  padding-right: clamp(1.25rem, 5vw, 6rem);
+}
+
+.container--narrow {
+  max-width: 56.25rem;
+}
+
+/* === SECTION HEADINGS === */
+.section__label {
+  display: none !important; /* Hidden per user request */
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+/* Hide all Tailwind utility-class based gold labels (text-accent + uppercase) */
+span.text-accent.uppercase {
+  display: none !important;
+}
+
+.section__title {
+  margin-bottom: 1.5rem;
+}
+
+.section__title::after {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 0.1875rem;
+  background: var(--color-accent);
+  margin-top: 0.75rem;
+}
+
+.section__header .section__title::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section__subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  max-width: 37.5rem;
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section__header .section__subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === FORMS === */
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.section--dark .form-label {
+  color: var(--color-text-on-dark);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  background: var(--color-surface);
+  border: 0.125rem solid #e0deda;
+  border-radius: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  transition: border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 0.25rem rgba(44, 95, 194, 0.1);
+}
+
+.section--dark .form-input,
+.section--dark .form-textarea {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-on-dark);
+}
+
+.section--dark .form-input:focus,
+.section--dark .form-textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 0.25rem rgba(212, 168, 67, 0.15);
+}
+
+/* Shared Custom CSS Component classes matching design specifications with 100% relative units */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  color: var(--color-bg-dark);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn--primary:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.375rem 2.1875rem rgba(212, 168, 67, 0.45);
+}
+
+.btn--outline {
+  border: 0.125rem solid rgba(255, 255, 255, 0.5);
+  color: white;
+  backdrop-filter: blur(0.25rem);
+}
+
+.btn--outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: translateY(-0.125rem);
+}
+
+.btn--blue {
+  background: var(--color-primary-mid);
+  color: white;
+}
+
+.btn--blue:hover {
+  background: var(--color-primary-light);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.375rem 1.875rem rgba(26, 58, 138, 0.4);
+}
+
+.btn--ghost {
+  color: var(--color-accent);
+  font-weight: 600;
+  padding: 0.5rem 0;
+}
+
+.btn--ghost:hover {
+  color: var(--color-accent-glow);
+}
+
+.btn--ghost::after {
+  content: ' →';
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+.btn--ghost:hover::after {
+  transform: translateX(0.25rem);
+}
+
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transition: left 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn--primary:hover::before {
+  left: 100%;
+}

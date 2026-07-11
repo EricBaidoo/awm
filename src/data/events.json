@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "title": "Women's Ministry Monthly Meeting",
+    "date": "2026-07-12",
+    "time": "1:00 PM",
+    "location": "Zoom",
+    "description": "Join us for our monthly Women's Ministry gathering — a time of fellowship, prayer, and empowerment.",
+    "recurring": true,
+    "image": "/images/events/womens-conference.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Sunday Worship Service",
+    "date": "2026-07-06",
+    "time": "11:00 AM",
+    "location": "4727 Concord Pike, Wilmington, DE 19803",
+    "description": "Join us for a powerful time of worship, praise, and the preaching of God's Word.",
+    "recurring": true,
+    "image": "/images/gallery/church-7.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Weekly Bible Study",
+    "date": "2026-07-03",
+    "time": "7:00 PM",
+    "location": "Zoom",
+    "description": "Dive deeper into the Word of God with our Thursday evening Bible Study.",
+    "recurring": true,
+    "image": "/images/gallery/church-9.jpg"
+  }
+]

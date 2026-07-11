@@ -1,0 +1,15 @@
+[
+  {
+    "id": "1",
+    "slug": "womens-ministry",
+    "name": "Women's Ministry",
+    "category": "Women",
+    "type": "In-Person",
+    "leader": "Church Leadership",
+    "day": "Second Saturday",
+    "time": "1:00 PM",
+    "location": "Auditorium",
+    "image": "/images/gallery/church-6.jpg",
+    "description": "A powerful gathering of women dedicated to growing in faith, supporting one another, and studying the Word of God together."
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "title": "Walking in the Spirit",
+    "speaker": "Apostle Joyce Cofield",
+    "date": "2026-06-29",
+    "description": "Learn how to walk daily in the power and guidance of the Holy Spirit.",
+    "thumbnail": "/images/gallery/church-7.jpg",
+    "videoUrl": "#",
+    "tags": ["Holy Spirit", "Christian Living"]
+  },
+  {
+    "id": "2",
+    "title": "The Power of Resurrection",
+    "speaker": "Apostle Joyce Cofield",
+    "date": "2026-06-22",
+    "description": "Understanding the resurrection power available to every believer.",
+    "thumbnail": "/images/gallery/church-8.jpg",
+    "videoUrl": "#",
+    "tags": ["Resurrection", "Faith"]
+  },
+  {
+    "id": "3",
+    "title": "Restoration Through the Word",
+    "speaker": "Apostle Joyce Cofield",
+    "date": "2026-06-15",
+    "description": "How God's Word brings complete restoration to broken lives.",
+    "thumbnail": "/images/gallery/church-11.jpg",
+    "videoUrl": "#",
+    "tags": ["Restoration", "Word of God"]
+  },
+  {
+    "id": "4",
+    "title": "Called to Intercede",
+    "speaker": "Apostle Joyce Cofield",
+    "date": "2026-06-08",
+    "description": "The importance and power of intercessory prayer in the life of a believer.",
+    "thumbnail": "/images/gallery/church-10.jpg",
+    "videoUrl": "#",
+    "tags": ["Prayer", "Intercession"]
+  }
+]
