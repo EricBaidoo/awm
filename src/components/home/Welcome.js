@@ -33,7 +33,8 @@ export default function Welcome() {
               Whether you are just beginning your spiritual journey or looking for a place to put down deep roots, you have a place here.
             </p>
             
-            <div className="flex items-center justify-center md:justify-start gap-[2rem]">
+            {/* Signature Block (Desktop only) */}
+            <div className="hidden md:flex items-center justify-start gap-[2rem]">
               <div className="flex flex-col">
                 <span className="font-display font-medium text-[1.2rem] text-black tracking-wide">{siteConfig.pastor.name}</span>
                 <span className="text-[0.75rem] text-[#888] uppercase tracking-[0.1em] font-bold">Senior Pastor</span>
@@ -52,6 +53,16 @@ export default function Welcome() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
+          </div>
+
+          {/* Signature Block (Mobile only) */}
+          <div className={`flex md:hidden items-center justify-center gap-[2rem] w-full text-center transition-all duration-1000 delay-300 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[4rem]'
+          }`}>
+            <div className="flex flex-col">
+              <span className="font-display font-medium text-[1.2rem] text-black tracking-wide">{siteConfig.pastor.name}</span>
+              <span className="text-[0.75rem] text-[#888] uppercase tracking-[0.1em] font-bold">Senior Pastor</span>
+            </div>
           </div>
 
         </div>
