@@ -9,8 +9,8 @@ export default function MinistriesPreview() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-white py-[8rem] relative overflow-hidden" ref={ref}>
-      <div className="container max-w-[85rem] relative z-10 px-[2rem]">
+    <section className="bg-white py-[4rem] md:py-[8rem] relative overflow-hidden" ref={ref}>
+      <div className="container max-w-[85rem] relative z-10">
         
         {/* Split Layout Container */}
         <div className="flex flex-col lg:flex-row items-center gap-[4rem] lg:gap-[6rem]">

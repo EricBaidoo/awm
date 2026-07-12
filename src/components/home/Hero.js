@@ -101,7 +101,7 @@ export default function Hero() {
         
         <div className="max-w-[50rem] mx-auto md:mx-0 flex flex-col items-center md:items-start text-center md:text-left">
           <h1 
-            className="font-display text-[clamp(3.5rem,8vw,6.5rem)] font-black text-white leading-[1.05] tracking-tight mb-[1rem] drop-shadow-2xl transition-all duration-700 ease-out"
+            className="font-display text-[clamp(2rem,8vw,6.5rem)] font-black text-white leading-[1.05] tracking-tight mb-[1rem] drop-shadow-2xl transition-all duration-700 ease-out"
             style={{ opacity: transitioning ? 0 : 1, transform: transitioning ? 'translateY(1rem)' : 'translateY(0)' }}
           >
             {slides[current].title}
@@ -130,16 +130,18 @@ export default function Hero() {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-[2.5rem] left-[2rem] md:left-[4rem] z-20 flex gap-[0.5rem]">
+      <div className="absolute bottom-[2.5rem] left-[2rem] md:left-[4rem] z-20 flex gap-[0.25rem]">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
-            className={`h-[0.35rem] rounded-full transition-all duration-500 ease-out ${
-              i === current ? 'w-[3rem] bg-accent' : 'w-[1.5rem] bg-white/30 hover:bg-white/60'
-            }`}
+            className="py-[0.75rem] px-[0.25rem] flex items-center"
             aria-label={`Go to slide ${i + 1}`}
-          />
+          >
+            <span className={`block h-[0.35rem] rounded-full transition-all duration-500 ease-out ${
+              i === current ? 'w-[3rem] bg-accent' : 'w-[1.5rem] bg-white/30'
+            }`} />
+          </button>
         ))}
       </div>
 

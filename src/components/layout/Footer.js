@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0f0f0f] text-white pt-[6rem] pb-[2rem] relative overflow-hidden border-t border-white/5">
+    <footer className="bg-[#0f0f0f] text-white pt-[3rem] md:pt-[6rem] pb-[2rem] relative overflow-hidden border-t border-white/5">
       
       {/* Subtle Background Element (like the faint circle in the screenshot) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] bg-white/[0.01] rounded-full blur-[100px] pointer-events-none" />
@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="container max-w-[85rem] px-[2rem] relative z-10">
         
         {/* Top Section: Logo & Info */}
-        <div className="flex flex-col lg:flex-row justify-between gap-[4rem] lg:gap-0 mb-[6rem]">
+        <div className="flex flex-col lg:flex-row justify-between gap-[3rem] md:gap-[4rem] lg:gap-0 mb-[3rem] md:mb-[6rem]">
           
           {/* Left Column: Logo, Links, Socials */}
           <div className="flex flex-col max-w-[40rem]">

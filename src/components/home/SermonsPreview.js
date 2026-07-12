@@ -24,16 +24,16 @@ export default function SermonsPreview() {
   };
 
   return (
-    <section className="bg-[#050b14] py-[8rem] relative overflow-hidden" ref={ref}>
+    <section className="bg-[#050b14] py-[4rem] md:py-[8rem] relative overflow-hidden" ref={ref}>
       
       {/* Dynamic Theater Spotlight Gradients */}
       <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-primary/30 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container max-w-[85rem] relative z-10 px-[2rem]">
+      <div className="container max-w-[85rem] relative z-10">
         
         {/* Main Heading */}
-        <div className={`text-center mb-[5rem] transition-all duration-1000 ease-out ${
+        <div className={`text-center mb-[2.5rem] md:mb-[5rem] transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[4rem]'
         }`}>
           {/* Heading removed */}

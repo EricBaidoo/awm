@@ -12,10 +12,10 @@ export default function Welcome() {
     <section className="bg-[#f4f4f4] pt-[6rem] md:pt-[8rem] pb-[6rem] md:pb-[8rem] relative z-20 -mt-[4rem] rounded-t-[2.5rem] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" ref={ref}>
       <div className="container max-w-[85rem] px-[2rem]">
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-[4rem] md:gap-[8rem]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-[3rem] md:gap-[8rem]">
           
           {/* Text Content */}
-          <div className={`w-full md:w-1/2 transition-all duration-1000 ease-out ${
+          <div className={`w-full md:w-1/2 text-center md:text-left transition-all duration-1000 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[4rem]'
           }`}>
             <p className="text-[#888] uppercase tracking-[0.2em] font-medium text-[0.85rem] mb-[1.5rem]">
@@ -33,7 +33,7 @@ export default function Welcome() {
               Whether you are just beginning your spiritual journey or looking for a place to put down deep roots, you have a place here.
             </p>
             
-            <div className="flex items-center gap-[2rem]">
+            <div className="flex items-center justify-center md:justify-start gap-[2rem]">
               <div className="flex flex-col">
                 <span className="font-display font-medium text-[1.2rem] text-black tracking-wide">{siteConfig.pastor.name}</span>
                 <span className="text-[0.75rem] text-[#888] uppercase tracking-[0.1em] font-bold">Senior Pastor</span>
@@ -42,7 +42,7 @@ export default function Welcome() {
           </div>
 
           {/* Image */}
-          <div className={`w-full md:w-1/2 relative aspect-[3/4] max-w-[35rem] overflow-hidden rounded-[1rem] shadow-2xl transition-all duration-1000 delay-200 ease-out ${
+          <div className={`w-full md:w-1/2 relative aspect-[3/4] max-w-[35rem] mx-auto overflow-hidden rounded-[1rem] shadow-2xl transition-all duration-1000 delay-200 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[4rem]'
           }`}>
              <Image

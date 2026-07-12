@@ -37,33 +37,24 @@ export default function ServiceTimes() {
           </p>
         </div>
 
-        {/* Clean schedule rows — sharp corners */}
+        {/* Mobile: stacked cards | Desktop: row layout */}
         <div className="max-w-[52rem] mx-auto flex flex-col gap-0">
           {services.map((service, i) => (
             <div
               key={i}
-              className={`flex items-stretch gap-0 border-b border-white/8 last:border-b-0 hover:bg-white/3 transition-all duration-200 ${
+              className={`border-b border-white/8 last:border-b-0 transition-all duration-200 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[-1rem]'
               }`}
               style={{ transitionDelay: `${i * 80}ms`, transitionDuration: '500ms' }}
             >
-              {/* Left: Day + Time column */}
-              <div className="py-[1.5rem] pr-[2rem] min-w-[9rem] border-r border-white/8 flex flex-col justify-center">
-                {/* Heading removed */}
-                <span className="text-[1.5rem] font-black text-white leading-none mt-[0.2rem]">
-                  {service.time}
-                </span>
-              </div>
-
-              {/* Center: Service details */}
-              <div className="flex-1 py-[1.5rem] px-[2rem] flex flex-col justify-center gap-[0.4rem]">
+              {/* Mobile Layout: stacked card */}
+              <div className="flex md:hidden flex-col gap-[0.75rem] py-[1.5rem] hover:bg-white/3 transition-colors duration-200 px-[0.5rem]">
+                <span className="text-[2rem] font-black text-white leading-none">{service.time}</span>
                 <div className="flex items-center gap-[0.75rem]">
                   {getServiceIcon(service.type)}
-                  <h3 className="font-display text-[1.1rem] font-bold text-white leading-tight">
-                    {service.name}
-                  </h3>
+                  <h3 className="font-display text-[1.1rem] font-bold text-white leading-tight">{service.name}</h3>
                 </div>
-                <div className="text-[0.82rem] text-text-on-dark-secondary pl-[2.15rem]">
+                <div className="text-[0.82rem] text-text-on-dark-secondary">
                   {service.type === 'in-person' && (
                     <span className="flex items-center gap-[0.375rem]">
                       <LocationIcon className="w-[0.875rem] h-[0.875rem] text-accent/70 shrink-0" />
@@ -71,42 +62,57 @@ export default function ServiceTimes() {
                     </span>
                   )}
                   {service.type === 'conference-call' && (
-                    <span>
-                      Dial-in: <strong className="text-white">{service.dialIn}</strong>
-                      <span className="mx-[0.5rem] opacity-40">·</span>
-                      Code: <strong className="text-accent">{service.passcode}</strong>
-                    </span>
+                    <span>Dial-in: <strong className="text-white">{service.dialIn}</strong> · Code: <strong className="text-accent">{service.passcode}</strong></span>
                   )}
                   {service.type === 'zoom' && (
-                    <span>
-                      Zoom ID: <strong className="text-white">{service.zoomId}</strong>
-                      <span className="mx-[0.5rem] opacity-40">·</span>
-                      Passcode: <strong className="text-accent">{service.zoomPasscode}</strong>
-                    </span>
+                    <span>Zoom ID: <strong className="text-white">{service.zoomId}</strong> · Passcode: <strong className="text-accent">{service.zoomPasscode}</strong></span>
+                  )}
+                </div>
+                <div className="pt-[0.5rem]">
+                  {service.type === 'in-person' ? (
+                    <a href="https://maps.google.com/?q=4727+Concord+Pike,+Wilmington,+DE+19803" target="_blank" rel="noopener noreferrer" className="btn btn--outline w-full justify-center py-[0.75rem]">Directions</a>
+                  ) : service.type === 'conference-call' ? (
+                    <a href={`tel:${service.dialIn.replace(/[^\d]/g, '')}`} className="btn btn--primary w-full justify-center py-[0.75rem]">Dial Now</a>
+                  ) : (
+                    <a href="https://zoom.us/join" target="_blank" rel="noopener noreferrer" className="btn btn--primary w-full justify-center py-[0.75rem]">Join Zoom</a>
                   )}
                 </div>
               </div>
 
-              {/* Right: Action button */}
-              <div className="py-[1.5rem] pl-[1.5rem] flex items-center shrink-0">
-                {service.type === 'in-person' ? (
-                  <a
-                    href="https://maps.google.com/?q=4727+Concord+Pike,+Wilmington,+DE+19803"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn--outline btn--sm"
-                  >
-                    Directions
-                  </a>
-                ) : service.type === 'conference-call' ? (
-                  <a href={`tel:${service.dialIn.replace(/[^\d]/g, '')}`} className="btn btn--primary btn--sm">
-                    Dial Now
-                  </a>
-                ) : (
-                  <a href="https://zoom.us/join" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--sm">
-                    Join Zoom
-                  </a>
-                )}
+              {/* Desktop Layout: 3-column row */}
+              <div className="hidden md:flex items-stretch gap-0 hover:bg-white/3 transition-colors duration-200">
+                <div className="py-[1.5rem] pr-[2rem] min-w-[9rem] border-r border-white/8 flex flex-col justify-center">
+                  <span className="text-[1.5rem] font-black text-white leading-none mt-[0.2rem]">{service.time}</span>
+                </div>
+                <div className="flex-1 py-[1.5rem] px-[2rem] flex flex-col justify-center gap-[0.4rem]">
+                  <div className="flex items-center gap-[0.75rem]">
+                    {getServiceIcon(service.type)}
+                    <h3 className="font-display text-[1.1rem] font-bold text-white leading-tight">{service.name}</h3>
+                  </div>
+                  <div className="text-[0.82rem] text-text-on-dark-secondary pl-[2.15rem]">
+                    {service.type === 'in-person' && (
+                      <span className="flex items-center gap-[0.375rem]">
+                        <LocationIcon className="w-[0.875rem] h-[0.875rem] text-accent/70 shrink-0" />
+                        {service.address}
+                      </span>
+                    )}
+                    {service.type === 'conference-call' && (
+                      <span>Dial-in: <strong className="text-white">{service.dialIn}</strong><span className="mx-[0.5rem] opacity-40">·</span>Code: <strong className="text-accent">{service.passcode}</strong></span>
+                    )}
+                    {service.type === 'zoom' && (
+                      <span>Zoom ID: <strong className="text-white">{service.zoomId}</strong><span className="mx-[0.5rem] opacity-40">·</span>Passcode: <strong className="text-accent">{service.zoomPasscode}</strong></span>
+                    )}
+                  </div>
+                </div>
+                <div className="py-[1.5rem] pl-[1.5rem] flex items-center shrink-0">
+                  {service.type === 'in-person' ? (
+                    <a href="https://maps.google.com/?q=4727+Concord+Pike,+Wilmington,+DE+19803" target="_blank" rel="noopener noreferrer" className="btn btn--outline btn--sm">Directions</a>
+                  ) : service.type === 'conference-call' ? (
+                    <a href={`tel:${service.dialIn.replace(/[^\d]/g, '')}`} className="btn btn--primary btn--sm">Dial Now</a>
+                  ) : (
+                    <a href="https://zoom.us/join" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--sm">Join Zoom</a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

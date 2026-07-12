@@ -42,15 +42,15 @@ export default function EventsPreview() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-[#050b14] py-[8rem] relative overflow-hidden" ref={ref}>
+    <section className="bg-[#050b14] py-[4rem] md:py-[8rem] relative overflow-hidden" ref={ref}>
       
       {/* Dynamic Theater Spotlight Gradient */}
       <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="container max-w-[75rem] relative z-10 px-[2rem]">
+      <div className="container max-w-[75rem] relative z-10">
         
         {/* Main Heading */}
-        <div className={`text-center mb-[5rem] transition-all duration-1000 ease-out ${
+        <div className={`text-center mb-[2.5rem] md:mb-[5rem] transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[2rem]'
         }`}>
           <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-black text-white tracking-tight leading-[1.1] mb-[1.5rem] drop-shadow-2xl">

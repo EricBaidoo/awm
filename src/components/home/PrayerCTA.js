@@ -11,7 +11,7 @@ export default function PrayerCTA() {
   return (
     <section 
       ref={ref}
-      className="relative py-[12rem] md:py-[16rem] flex items-center justify-center overflow-hidden text-center"
+      className="relative py-[6rem] md:py-[16rem] flex items-center justify-center overflow-hidden text-center"
     >
       {/* Cinematic Background Image */}
       <div className="absolute inset-0 z-0">
@@ -45,7 +45,7 @@ export default function PrayerCTA() {
 
           <Link 
             href="/connect" 
-            className="inline-flex items-center justify-center px-[3.5rem] py-[1.25rem] bg-accent text-primary font-bold uppercase tracking-[0.2em] text-[0.95rem] hover:bg-white hover:scale-105 transition-all duration-500 shadow-[0_15px_40px_rgba(212,175,55,0.4)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.5)]"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-[3.5rem] py-[1.25rem] bg-accent text-primary font-bold uppercase tracking-[0.2em] text-[0.95rem] hover:bg-white hover:scale-105 transition-all duration-500 shadow-[0_15px_40px_rgba(212,175,55,0.4)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.5)]"
           >
             Submit A Request
           </Link>

@@ -11,17 +11,17 @@ export default function GivingSection() {
   return (
     <section 
       ref={ref}
-      className="relative py-[8rem] md:py-[12rem] bg-bg-dark overflow-hidden"
+      className="relative py-[4rem] md:py-[12rem] bg-bg-dark overflow-hidden"
     >
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/5 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-primary/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
 
-      <div className="container relative z-10 px-[2rem] max-w-[85rem]">
+      <div className="container relative z-10 max-w-[85rem]">
         <div className="grid lg:grid-cols-2 gap-[4rem] lg:gap-[6rem] items-center">
           
           {/* Left Side: Content */}
-          <div className={`transition-all duration-1000 ease-out ${
+          <div className={`text-center lg:text-left transition-all duration-1000 ease-out flex flex-col items-center lg:items-start ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[3rem]'
           }`}>
             <div className="w-[4rem] h-[4rem] rounded-full bg-white/5 flex items-center justify-center mb-[2rem] border border-white/10 backdrop-blur-sm">
@@ -38,7 +38,7 @@ export default function GivingSection() {
 
             <Link 
               href="/give" 
-              className="inline-flex items-center justify-center px-[3rem] py-[1.25rem] bg-accent text-primary font-bold uppercase tracking-[0.15em] text-[0.9rem] hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(212,175,55,0.2)]"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-[3rem] py-[1.25rem] bg-accent text-primary font-bold uppercase tracking-[0.15em] text-[0.9rem] hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(212,175,55,0.2)]"
             >
               Give Online Now
             </Link>

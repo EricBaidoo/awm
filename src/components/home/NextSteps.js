@@ -40,7 +40,7 @@ export default function NextSteps() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="bg-white py-[8rem] relative overflow-hidden" ref={ref}>
+    <section className="bg-white py-[4rem] md:py-[8rem] relative overflow-hidden" ref={ref}>
       
       {/* Dynamic Light Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
@@ -53,10 +53,10 @@ export default function NextSteps() {
         </div>
       </div>
 
-      <div className="container max-w-[85rem] relative z-10 px-[2rem]">
+      <div className="container max-w-[85rem] relative z-10">
         
         {/* Main Heading */}
-        <div className={`text-center mb-[4rem] transition-all duration-1000 ease-out ${
+        <div className={`text-center mb-[2.5rem] md:mb-[4rem] transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[4rem]'
         }`}>
           <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-black text-black tracking-tight leading-[1.1] mb-[1.5rem]">
