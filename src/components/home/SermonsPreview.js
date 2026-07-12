@@ -50,7 +50,7 @@ export default function SermonsPreview() {
           {recentSermons.map((sermon, i) => (
             <Link 
               key={sermon.id}
-              href={`/sermons/${sermon.id}`}
+              href={`/sermons`}
               className={`group flex flex-col rounded-[1rem] overflow-hidden bg-white/[0.03] backdrop-blur-xl shadow-[0_30px_60px_rgba(0,0,0,0.6)] hover:-translate-y-3 hover:shadow-[0_40px_80px_rgba(212,175,55,0.15)] transition-all duration-700 ease-out border border-white/10 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[4rem]'
               }`}
@@ -63,7 +63,7 @@ export default function SermonsPreview() {
                   alt={sermon.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover object-top transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                  className="object-cover object-center transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050b14] via-transparent to-transparent opacity-80" />
               </div>
@@ -80,7 +80,9 @@ export default function SermonsPreview() {
 
                 {/* Details Right */}
                 <div className="flex flex-col flex-grow">
-                  {/* Heading removed */}
+                  <h3 className="font-display font-bold text-white text-[1.25rem] leading-tight mb-[1rem] line-clamp-2">
+                    {sermon.title}
+                  </h3>
                   
                   <div className="flex items-center gap-[0.5rem] mb-[0.5rem] text-white/50 group-hover:text-white/80 transition-colors duration-300">
                     <TimeIcon className="w-[1rem] h-[1rem]" />
@@ -106,7 +108,12 @@ export default function SermonsPreview() {
         <div className={`text-center mt-[5rem] transition-all duration-1000 delay-500 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[4rem]'
         }`}>
-          {/* Heading removed */}
+          <Link 
+            href="/sermons" 
+            className="btn btn--outline border-white/20 text-white hover:bg-white hover:text-primary transition-all duration-300"
+          >
+            View All Messages
+          </Link>
         </div>
 
       </div>
