@@ -22,7 +22,7 @@ export default function Welcome() {
               WELCOME HOME
             </p>
             
-            <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-black text-black leading-[1.1] mb-[2rem] tracking-tight">
+            <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-black leading-tight mb-[2rem] tracking-tight">
               A Place of <br/> Reconciliation
             </h2>
             

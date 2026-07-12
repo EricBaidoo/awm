@@ -19,8 +19,8 @@ export default function MinistriesPreview() {
           <div className={`w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-1000 ease-out ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-[4rem]'
           }`}>
-            <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-black text-primary tracking-tight leading-[1.1] mb-[1.5rem]">
-              Our Ministries
+            <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-primary tracking-tight leading-tight mb-[1.5rem]">
+              Ministries
             </h2>
             <p className="text-[1.1rem] md:text-[1.15rem] text-text-secondary leading-[1.6] font-light mb-[3rem] max-w-[35rem]">
               Faith grows best in community. Whether you're new or ready to take your next step, there's a place for you to connect, grow, and belong.

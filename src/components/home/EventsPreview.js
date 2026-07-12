@@ -53,7 +53,7 @@ export default function EventsPreview() {
         <div className={`text-center mb-[2.5rem] md:mb-[5rem] transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[2rem]'
         }`}>
-          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-black text-white tracking-tight leading-[1.1] mb-[1.5rem] drop-shadow-2xl">
+          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-white tracking-tight leading-tight mb-[1.5rem] drop-shadow-2xl">
             Upcoming Events
           </h2>
           <p className="text-[1.1rem] md:text-[1.15rem] text-white/70 leading-[1.6] max-w-[45rem] mx-auto font-light">
@@ -94,7 +94,7 @@ export default function EventsPreview() {
                   <span className="font-display font-bold text-[1.1rem] text-accent tracking-[0.2em] uppercase mb-[0.25rem]">
                     {event.month}
                   </span>
-                  <span className="font-display font-black text-[3.5rem] text-white leading-none drop-shadow-md">
+                  <span className="font-display font-bold text-[3.5rem] text-white leading-none drop-shadow-md">
                     {event.day}
                   </span>
                 </div>

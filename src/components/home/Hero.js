@@ -122,7 +122,7 @@ export default function Hero() {
         
         <div className="max-w-[50rem] mx-auto md:mx-0 flex flex-col items-center md:items-start text-center md:text-left">
           <h1 
-            className="font-display text-[clamp(2rem,8vw,6.5rem)] font-black text-white leading-[1.05] tracking-tight mb-[1rem] drop-shadow-2xl transition-all duration-700 ease-out"
+            className="font-display text-[clamp(2rem,8vw,6.5rem)] font-bold text-white leading-[1.05] tracking-tight mb-[1rem] drop-shadow-2xl transition-all duration-700 ease-out"
             style={{ opacity: transitioning ? 0 : 1, transform: transitioning ? 'translateY(1rem)' : 'translateY(0)' }}
           >
             {slides[current].title}

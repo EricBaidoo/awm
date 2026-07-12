@@ -17,7 +17,8 @@
   --color-text-on-dark: #e8e6e0;
   --color-text-on-dark-secondary: #a0a0b0;
 
-  --font-display: var(--font-display);
+  /* Map the display font to the elegant Serif font (Cormorant) instead of the chunky Sans-Serif */
+  --font-display: var(--font-scripture);
   --font-body: var(--font-body);
   --font-scripture: var(--font-scripture);
 

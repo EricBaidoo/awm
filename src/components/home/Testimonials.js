@@ -46,8 +46,8 @@ export default function Testimonials() {
         <div className={`text-center mb-[5rem] transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[2rem]'
         }`}>
-          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-black text-black tracking-tight leading-[1.1] mb-[1.5rem]">
-            Stories of Grace
+          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-black tracking-tight leading-tight mb-[1.5rem]">
+            Stories of Transformation
           </h2>
           <div className="w-[4rem] h-[3px] bg-accent mx-auto"></div>
         </div>

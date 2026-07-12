@@ -37,8 +37,8 @@ export default function SermonsPreview() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[4rem]'
         }`}>
           {/* Heading removed */}
-          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-black text-white tracking-tight leading-[1.1] mb-[1.5rem] drop-shadow-2xl">
-            Latest Messages From The House
+          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-white tracking-tight leading-tight mb-[1.5rem] drop-shadow-2xl">
+            Recent Messages
           </h2>
           <p className="text-[1.1rem] md:text-[1.15rem] text-white/70 leading-[1.6] max-w-[50rem] mx-auto font-light">
             There is always a word in season. Discover sermons and teachings designed to inspire, connect, and empower you in every season of life.
@@ -74,7 +74,8 @@ export default function SermonsPreview() {
                 {/* Floating Date Left */}
                 <div className="flex flex-col items-center mr-[1.5rem] pt-[0.25rem]">
                   {/* Sub-heading hidden per user request */}
-                  <span className="font-display text-[1.85rem] font-black text-white leading-none drop-shadow-md">{getDay(sermon.date)}</span>
+                  <span className="font-display text-[1.85rem] font-bold text-white leading-none drop-shadow-md">{getDay(sermon.date)}</span>
+                  <span className="text-[0.7rem] font-bold text-accent uppercase tracking-[0.2em] mt-[0.25rem]">{getMonth(sermon.date)}</span>
                 </div>
 
                 {/* Details Right */}

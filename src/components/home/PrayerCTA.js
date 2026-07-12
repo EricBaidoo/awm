@@ -35,11 +35,11 @@ export default function PrayerCTA() {
             <PrayerIcon className="w-[2.5rem] h-[2.5rem] text-accent drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]" />
           </div>
 
-          <h2 className="font-display text-[clamp(3.5rem,6vw,5.5rem)] font-black text-white leading-[1.05] tracking-tight mb-[1.5rem] drop-shadow-2xl">
+          <h2 className="font-display text-[clamp(3.5rem,6vw,5.5rem)] font-bold text-white leading-[1.05] tracking-tight mb-[1.5rem] drop-shadow-2xl">
             Need Prayer?
           </h2>
           
-          <p className="text-[1.2rem] md:text-[1.4rem] text-white/90 max-w-[40rem] font-light leading-[1.6] mb-[3.5rem] drop-shadow-lg">
+          <p className="text-[1.1rem] md:text-[1.4rem] text-white/90 max-w-[40rem] font-light leading-[1.6] mb-[3.5rem] drop-shadow-lg text-left md:text-center">
             We believe in the power of corporate intercession. No matter what you are facing, you don't have to face it alone. Let our prayer team stand in faith with you.
           </p>
 

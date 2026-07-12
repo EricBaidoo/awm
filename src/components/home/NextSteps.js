@@ -46,23 +46,16 @@ export default function NextSteps() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-[-10vw] w-[40vw] h-[40vw] bg-[#f4f4f4] rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Background Watermark Text - Faint */}
-      <div className="absolute top-[6rem] left-1/2 -translate-x-1/2 w-full text-center select-none pointer-events-none z-0" aria-hidden="true">
-        <div className="font-display text-[clamp(5rem,12vw,10rem)] font-black text-black/[0.03] uppercase tracking-tighter leading-none">
-          Engage
-        </div>
-      </div>
-
       <div className="container max-w-[85rem] relative z-10">
         
         {/* Main Heading */}
         <div className={`text-center mb-[2.5rem] md:mb-[4rem] transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[4rem]'
         }`}>
-          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-black text-black tracking-tight leading-[1.1] mb-[1.5rem]">
+          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-black tracking-tight leading-tight mb-[1.5rem]">
             Find Your Place.<br/>Live Your Purpose.
           </h2>
-          <p className="text-[1.1rem] md:text-[1.15rem] text-[#555] leading-[1.6] max-w-[50rem] mx-auto font-light">
+          <p className="text-[1.1rem] md:text-[1.15rem] text-[#555] leading-[1.6] max-w-[50rem] mx-auto font-light text-left md:text-center">
             Faith grows best in community. Whether you're new or ready to take your next step, there's a place for you to connect, grow, and belong.
           </p>
           <p className="text-[1.1rem] md:text-[1.15rem] text-accent leading-[1.6] mt-[1rem] font-medium">

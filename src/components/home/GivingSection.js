@@ -28,7 +28,7 @@ export default function GivingSection() {
               <GiveIcon className="w-[2rem] h-[2rem] text-accent" />
             </div>
 
-            <h2 className="font-display text-[clamp(3rem,5vw,4.5rem)] font-black text-white leading-[1.1] tracking-tight mb-[1.5rem]">
+            <h2 className="font-display text-[clamp(3rem,5vw,4.5rem)] font-bold text-white leading-tight tracking-tight mb-[1.5rem]">
               Partner With Us
             </h2>
             

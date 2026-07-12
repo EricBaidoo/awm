@@ -17,9 +17,9 @@ export default function ServiceTimes() {
     }
   };
 
-  const getDayLabel = (index) => {
-    const days = ['Sunday', 'Tuesday', 'Thursday', 'Friday', '2nd Sat'];
-    return days[index] || 'Service';
+  const getDayName = (dayInt) => {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return days[dayInt] || 'Service';
   };
 
   return (
@@ -29,7 +29,7 @@ export default function ServiceTimes() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[2rem]'
         }`}>
           {/* Sub-heading hidden per user request */}
-          <h2 className="font-display text-[2rem] md:text-[2.5rem] font-black tracking-tight text-white mb-[1rem]">
+          <h2 className="font-display text-[2rem] md:text-[2.5rem] font-bold tracking-tight text-white mb-[1rem]">
             Join Our Services
           </h2>
           <p className="section__subtitle text-text-on-dark-secondary">
@@ -49,7 +49,10 @@ export default function ServiceTimes() {
             >
               {/* Mobile Layout: stacked card */}
               <div className="flex md:hidden flex-col gap-[0.75rem] py-[1.5rem] hover:bg-white/3 transition-colors duration-200 px-[0.5rem]">
-                <span className="text-[2rem] font-black text-white leading-none">{service.time}</span>
+                <div className="flex flex-col">
+                  <span className="text-[0.85rem] font-bold text-accent uppercase tracking-wider mb-[0.25rem]">{getDayName(service.day)}</span>
+                  <span className="text-[2rem] font-bold text-white leading-none">{service.time}</span>
+                </div>
                 <div className="flex items-center gap-[0.75rem]">
                   {getServiceIcon(service.type)}
                   <h3 className="font-display text-[1.1rem] font-bold text-white leading-tight">{service.name}</h3>
@@ -82,7 +85,8 @@ export default function ServiceTimes() {
               {/* Desktop Layout: 3-column row */}
               <div className="hidden md:flex items-stretch gap-0 hover:bg-white/3 transition-colors duration-200">
                 <div className="py-[1.5rem] pr-[2rem] min-w-[9rem] border-r border-white/8 flex flex-col justify-center">
-                  <span className="text-[1.5rem] font-black text-white leading-none mt-[0.2rem]">{service.time}</span>
+                  <span className="text-[0.85rem] font-bold text-accent uppercase tracking-wider mb-[0.25rem]">{getDayName(service.day)}</span>
+                  <span className="text-[1.5rem] font-bold text-white leading-none">{service.time}</span>
                 </div>
                 <div className="flex-1 py-[1.5rem] px-[2rem] flex flex-col justify-center gap-[0.4rem]">
                   <div className="flex items-center gap-[0.75rem]">
