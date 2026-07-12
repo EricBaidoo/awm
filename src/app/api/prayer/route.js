@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendEmail, generateEmailTemplate } from '@/lib/email';
 
 export async function POST(request) {
   try {
@@ -11,14 +12,29 @@ export async function POST(request) {
       );
     }
 
-    // In production, use Nodemailer to send email
-    // For now, log the request
+    // Log the request
     console.log('📩 Prayer Request Received:', {
       name: name || 'Anonymous',
       email: email || 'Not provided',
-      request: prayerRequest,
       timestamp: new Date().toISOString(),
     });
+
+    // Send the email
+    const emailHtml = generateEmailTemplate('New Prayer Request', {
+      Name: name || 'Anonymous',
+      Email: email || 'Not provided',
+      Request: prayerRequest,
+    });
+
+    const emailResult = await sendEmail({
+      subject: `New Prayer Request from ${name || 'Anonymous'}`,
+      html: emailHtml,
+      replyTo: email || undefined,
+    });
+
+    if (!emailResult.success) {
+      console.warn('Email failed to send. Check SMTP settings. Proceeding anyway.');
+    }
 
     return NextResponse.json({ success: true, message: 'Prayer request received' });
   } catch (error) {

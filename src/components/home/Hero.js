@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { toZonedTime } from 'date-fns-tz';
+import siteConfig from '@/lib/config';
 
 // Slide data supporting both images and videos
 const slides = [
@@ -35,6 +37,25 @@ const slides = [
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
+  const [isLive, setIsLive] = useState(false);
+
+  useEffect(() => {
+    const checkLiveStatus = () => {
+      const now = new Date();
+      const zonedDate = toZonedTime(now, siteConfig.liveSchedule.timezone);
+      const currentDay = zonedDate.getDay();
+      const currentHour = zonedDate.getHours();
+      
+      const isCurrentlyLive = siteConfig.liveSchedule.windows.some(window => {
+        return currentDay === window.day && currentHour >= window.startHour && currentHour < window.endHour;
+      });
+      setIsLive(isCurrentlyLive);
+    };
+
+    checkLiveStatus();
+    const interval = setInterval(checkLiveStatus, 60000); // Check every minute
+    return () => clearInterval(interval);
+  }, []);
 
   const goTo = useCallback((index) => {
     if (transitioning) return;
@@ -118,12 +139,27 @@ export default function Hero() {
             className="flex flex-col sm:flex-row flex-wrap gap-[1.5rem] w-full sm:w-auto justify-center md:justify-start transition-all duration-700 delay-200 ease-out"
             style={{ opacity: transitioning ? 0 : 1, transform: transitioning ? 'translateY(1rem)' : 'translateY(0)' }}
           >
-            <Link href="/visit" className="w-full sm:w-auto text-center px-[2.5rem] py-[1rem] bg-accent text-primary font-bold text-[1.1rem] uppercase tracking-wide hover:bg-white transition-colors shadow-xl">
+            <Link href="/connect" className="w-full sm:w-auto text-center px-[2.5rem] py-[1rem] bg-accent text-primary font-bold text-[1.1rem] uppercase tracking-wide hover:bg-white transition-colors shadow-xl">
               Plan A Visit
             </Link>
-            <Link href="/stream" className="w-full sm:w-auto text-center px-[2.5rem] py-[1rem] border-[2px] border-white text-white font-bold text-[1.1rem] uppercase tracking-wide hover:bg-white hover:text-black transition-colors shadow-xl">
-              Watch Live
-            </Link>
+            
+            {isLive ? (
+              <a 
+                href={siteConfig.liveSchedule.streamUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full sm:w-auto text-center px-[2.5rem] py-[1rem] bg-red-600 text-white font-bold text-[1.1rem] uppercase tracking-wide hover:bg-red-700 transition-colors shadow-xl flex items-center justify-center gap-2"
+              >
+                <span className="w-2.5 h-2.5 rounded-full bg-white animate-pulse" /> Watch Live Now
+              </a>
+            ) : (
+              <Link 
+                href="/sermons" 
+                className="w-full sm:w-auto text-center px-[2.5rem] py-[1rem] border-[2px] border-white text-white font-bold text-[1.1rem] uppercase tracking-wide hover:bg-white hover:text-black transition-colors shadow-xl"
+              >
+                Watch Latest Sermon
+              </Link>
+            )}
           </div>
         </div>
 

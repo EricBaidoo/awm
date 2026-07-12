@@ -41,6 +41,20 @@ const siteConfig = {
   // SEO
   siteUrl: 'https://anointedwordministries.org',
   description: 'Anointed Word Ministries — A Spirit-filled church in Wilmington, Delaware, led by Apostle Joyce Cofield. Join us for worship, prayer, and the transforming Word of God.',
+
+  // Live Stream Schedule (Eastern Time)
+  liveSchedule: {
+    timezone: 'America/New_York', // ET
+    windows: [
+      {
+        day: 0, // Sunday (0 = Sunday, 1 = Monday, etc.)
+        startHour: 10, // 10:00 AM
+        endHour: 13, // 1:00 PM
+      }
+    ],
+    // The URL users will be directed to when the stream is live
+    streamUrl: 'https://facebook.com', 
+  }
 };
 
 export default siteConfig;

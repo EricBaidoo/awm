@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendEmail, generateEmailTemplate } from '@/lib/email';
 
 export async function POST(request) {
   try {
@@ -13,12 +14,26 @@ export async function POST(request) {
 
     // Log connection submission
     console.log('✉️ General Contact Inquiry Received:', {
-      name,
-      email,
-      subject,
-      message,
-      timestamp: new Date().toISOString(),
+      name, email, subject, timestamp: new Date().toISOString(),
     });
+
+    // Send the email
+    const emailHtml = generateEmailTemplate('New Contact Form Inquiry', {
+      Name: name,
+      Email: email,
+      Subject: subject,
+      Message: message,
+    });
+
+    const emailResult = await sendEmail({
+      subject: `New Contact Inquiry: ${subject}`,
+      html: emailHtml,
+      replyTo: email,
+    });
+
+    if (!emailResult.success) {
+      console.warn('Email failed to send. Check SMTP settings. Proceeding anyway.');
+    }
 
     return NextResponse.json({ success: true, message: 'Message sent successfully' });
   } catch (error) {
