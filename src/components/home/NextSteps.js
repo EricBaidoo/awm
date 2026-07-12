@@ -78,13 +78,13 @@ export default function NextSteps() {
               <Link 
                 key={step.title}
                 href={step.href}
-                className={`group relative rounded-[1rem] overflow-hidden aspect-[3/4] shadow-[0_15px_35px_rgba(0,0,0,0.06)] hover:-translate-y-3 hover:shadow-[0_25px_50px_rgba(212,175,55,0.15)] transition-all duration-700 ease-out border border-black/5 bg-white ${
+                className={`group flex flex-col rounded-[1rem] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.06)] hover:-translate-y-3 hover:shadow-[0_25px_50px_rgba(212,175,55,0.15)] transition-all duration-700 ease-out border border-black/5 bg-white ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[4rem]'
                 }`}
                 style={{ transitionDelay: `${i * 150}ms` }}
               >
-                {/* Image restricted to top 60% */}
-                <div className="absolute inset-0 h-[65%]">
+                {/* Image Top Half */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-black/5">
                   <Image
                     src={step.image}
                     alt={step.title}
@@ -92,18 +92,17 @@ export default function NextSteps() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-100" />
                 </div>
                 
-                {/* Content Area */}
-                <div className="absolute bottom-0 left-0 w-full p-[1.5rem] pt-[2rem] h-[55%] flex flex-col justify-end bg-gradient-to-t from-white via-white/95 to-transparent">
-                  <div className="mb-[0.75rem] text-accent/80 group-hover:text-accent transition-colors duration-500">
-                    <Icon className="w-[1.5rem] h-[1.5rem] stroke-[2px]" />
+                {/* Content Bottom Half */}
+                <div className="flex flex-col flex-grow p-[1.5rem] bg-white border-t border-black/5">
+                  <div className="mb-[1rem] text-accent/80 group-hover:text-accent transition-colors duration-500">
+                    <Icon className="w-[1.75rem] h-[1.75rem] stroke-[2px]" />
                   </div>
-                  <h3 className="font-display font-bold text-[1.25rem] text-black leading-[1.2] mb-[0.5rem] tracking-wide">
+                  <h3 className="font-display font-bold text-[1.35rem] text-black leading-[1.2] mb-[0.75rem] tracking-wide">
                     {step.title}
                   </h3>
-                  <p className="text-[0.85rem] text-[#666] leading-[1.5] font-light group-hover:text-[#444] transition-all duration-500">
+                  <p className="text-[0.9rem] text-[#666] leading-[1.6] font-light group-hover:text-[#444] transition-all duration-500">
                     {step.desc}
                   </p>
                 </div>
